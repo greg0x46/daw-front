@@ -16,7 +16,7 @@ class Map extends React.Component {
   }
 
   render() {
-    return <div id="map"></div>
+    return <div id="map" style={{height: "calc(100vh - 64px)"}}></div>;
   }
 }
 
