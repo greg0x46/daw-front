@@ -1,6 +1,6 @@
 import React from 'react'
 import { Map as LeafletMap, GeoJSON, Marker, Popup } from 'react-leaflet';
-import GeoJSON from '../Map/ONS_UHE.geojson';
+import GeoJSONa from '../Map/ONS_UHE.geojson';
 
 
 GeoJSONa.forEach(function (item, indice, array){
