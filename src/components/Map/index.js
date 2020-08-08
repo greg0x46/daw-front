@@ -1,41 +1,50 @@
-import React from 'react'
-import { Map as LeafletMap, GeoJSON, Marker, Popup } from 'react-leaflet';
+import React from 'react';
+import L from 'leaflet';
 import mapadusguri from 'ONS_UHE.geojson';
 
-class GeoJsonMap extends React.Component {
+class Map extends React.Component {
+
+  componentDidMount() {
+    // create map
+    function zoomToFeature(e) {
+      map.fitBounds(e.target.getBounds());
+  
+    }
+  
+    function onEachFeature(feature, layer) {
+      layer.on({
+        click: zoomToFeature
+      });}
+      
+    function myStyle1(feature){
+      return {
+        weight : 2,
+        opacity : 2,
+                  color :'#1874CD',
+                  fillColor: '#1874CD',
+                  dashArray : 0,
+        fillOpacity : 0.3
+      }	}
+
+    this.map = L.map('map', {
+      center: [49.8419, 24.0315],
+      zoom: 16,
+      layers: [
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }),
+        L.geoJson(mapadusguri,{
+          style: myStyle1,
+          onEachFeature: onEachFeature,
+          }).addTo(map)
+      
+      ]
+    });
+  }
+
   render() {
-    return (
-      <LeafletMap
-        center={[49.8419, 24.0315]}
-        zoom={6}
-        maxZoom={10}
-        attributionControl={true}
-        zoomControl={true}
-        doubleClickZoom={true}
-        scrollWheelZoom={true}
-        dragging={true}
-        animate={true}
-        easeLinearity={0.35}
-      >
-        <GeoJSON
-          data={mapadusguri}
-          style={() => ({
-            color: '#4a83ec',
-            weight: 0.5,
-            fillColor: "#1a1d62",
-            fillOpacity: 1,
-          })}
-        />
-        <Marker position={[49.8419, 24.0315]}>
-          <Popup>
-            Popup for any custom information.
-          </Popup>
-        </Marker>
-      </LeafletMap>
-    
-    );
+    return <div id="map" style={{height: "calc(100vh - 64px)"}}></div>;
   }
 }
 
-
-export default GeoJsonMap;
+export default Map;
