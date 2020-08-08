@@ -8,7 +8,6 @@ class Map extends React.Component {
 
   componentDidMount() {
     // create map
-    this.geo = L.
     this.map = L.map('map', {
       center: [-30.1442681,-51.2360159],
       zoom: 10,
