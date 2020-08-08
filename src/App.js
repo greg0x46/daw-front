@@ -5,7 +5,10 @@ import Map from './components/Map'
 function App(){
   return (
     <Base>
-      <Map></Map>
+      <Map>
+        <GeoJsonMap>
+        </GeoJsonMap>
+        </Map>
     </Base>
   );
 }
