@@ -1,6 +1,6 @@
 import React from 'react';
 import L from 'leaflet';
-import mapadusguri from 'ONS_UHE.geojson';
+import mapadusguri from './ONS_UHE.geojson';
 
 class Map extends React.Component {
 

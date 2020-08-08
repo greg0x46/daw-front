@@ -2,6 +2,13 @@ import React from 'react'
 import { Map as LeafletMap, GeoJSON, Marker, Popup } from 'react-leaflet';
 import GeoJSON from '../Map/ONS_UHE.geojson';
 
+
+GeoJSONa.forEach(function (item, indice, array){
+  let mapaaa =  array;
+
+});
+
+
 class GeoJsonMap extends React.Component {
   render() {
     return (
@@ -18,7 +25,7 @@ class GeoJsonMap extends React.Component {
         easeLinearity={0.35}
       >
         <GeoJSON
-          data={mapadusguri}
+          data={mapaaa}
           style={() => ({
             color: '#4a83ec',
             weight: 0.5,
